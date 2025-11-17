@@ -44,16 +44,6 @@ Before you begin, ensure you have the following installed:
    npm install
    ```
 
-3. **Set up environment variables**
-   
-   Create a `.env` file in the root directory with the following variables:
-   ```env
-   PORT=3001
-   MONGODB_URI=mongodb://localhost:27017/blog-project
-   ```
-   
-   > For MongoDB Atlas, use: `mongodb+srv://<username>:<password>@<cluster>.mongodb.net/<database-name>`
-
 4. **Start the server**
    
    **Development mode** (with hot reload):

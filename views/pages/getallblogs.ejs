@@ -38,47 +38,51 @@
       <!-- ============================================================== -->
       <div class="row">
         <div class="col-12 d-flex flex-wrap">
-            <% blogs.forEach((blog)=>{ %>
-              <div class="col-6 px-2 py-2">
-                <div class="col-12">
-                  <div class="card1">
-                    <div class="card__shine"></div>
-                    <div class="card__glow"></div>
-                    <div class="card__content">
-                      <div class="card__badge">NEW</div>
-                      <div style="--bg-color: #a78bfa" class="card__image">
-                        <img src="/<%= blog.image %>" width="100%" alt="<%= blog.title %>">
-                      </div>
-                      <div class="card__text">
-                        <p class="card__title">
-                          <%= blog.title %>
-                        </p>
-                        <p class="card__title fw-normal">
-                          <%= blog.category %>
-                        </p>
-                        <p class="card__description">
-                          <%= blog.description %>
-                        </p>
-                      </div>
-                      <div class="card__footer">
-                        <% allusers.forEach((u)=>{ %>
-                          <% if(blog.userID.toString()===u._id.toString()){ %>
-                            <div class="card__price">By:- <%= u.name %>
-                            </div>
-                            <% } %>
-                              <% }) %>
-                                <div class="card__button">
-                                  <svg height="16" width="16" viewBox="0 0 24 24">
-                                    <path stroke-width="2" stroke="currentColor" d="M4 12H20M12 4V20"
-                                      fill="currentColor"></path>
-                                  </svg>
-                                </div>
-                      </div>
+          <% blogs.forEach((blog)=>{ %>
+            <div class="col-12 col-lg-6 px-2 py-2">
+              <div class="col-12">
+                <div class="card1">
+                  <div class="card__shine"></div>
+                  <div class="card__glow"></div>
+                  <div class="card__content">
+                    <div style="--bg-color: #a78bfa" class="card__image">
+                      <img src="/<%= blog.image %>" width="100%" alt="<%= blog.title %>">
+                    </div>
+                    <div class="card__text">
+                      <p class="card__title">
+                        <%= blog.title %>
+                      </p>
+                      <p class="card__title fw-normal">
+                        <%= blog.category %>
+                      </p>
+                      <p class="card__description">
+                        <%= blog.description %>
+                      </p>
+                      <p class="card__title fw-normal py-2">
+                        <% const date=new Date(blog.createdAt); const formattedDate=date.getDate() + '/' +
+                          (date.getMonth()+1) + '/' + date.getFullYear(); %>
+                          <%= formattedDate %>
+                      </p>
+                    </div>
+                    <div class="card__footer">
+                      <% allusers.forEach((u)=>{ %>
+                        <% if(blog.userID.toString()===u._id.toString()){ %>
+                          <div class="card__price">By:- <%= u.name %>
+                          </div>
+                          <% } %>
+                            <% }) %>
+                              <div class="card__button">
+                                <svg height="16" width="16" viewBox="0 0 24 24">
+                                  <path stroke-width="2" stroke="currentColor" d="M4 12H20M12 4V20" fill="currentColor">
+                                  </path>
+                                </svg>
+                              </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <% }) %>
+            </div>
+            <% }) %>
         </div>
       </div>
       <!-- ============================================================== -->
